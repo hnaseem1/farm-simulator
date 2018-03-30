@@ -1,17 +1,18 @@
 require_relative 'farm'
 
 class Field < Farm
-
-  @@field = []
-  @@area = {"corn" 0, "wheat" 0}
-  Corn = 20
-  Wheat = 30
+# Class variables and constants defined below
+  @@field = [] #carries each instance
+  @@area = {"corn" 0, "wheat" 0} # has area for both types
+  Corn = 20 # constant produce per hectre
+  Wheat = 30 # constant produce per hectre
 
   def initialize(type area)
     @type = type
     @area = area
   end
 
+# readers and writers for Field Instances
   def type
     @type
   end
@@ -19,7 +20,7 @@ class Field < Farm
   def area
     @area
   end
-
+# a class method to create new fields
   def self.create(type, area)
 
     @@fields << Field.new(type, area)
@@ -33,7 +34,7 @@ class Field < Farm
       @@area["wheat"] += area
     end
   end
-
+# Instance method to produce food using contants
   def produce_food
 
     if @type != "corn" || @type != "wheat"
@@ -46,7 +47,7 @@ class Field < Farm
         @area * Wheat
     end
   end
-
+# An instance method that uses Farm class method to calculate and save total harvested food in a class variable
   def add_to_total
       Farm.add_food(produce_food)
   end
