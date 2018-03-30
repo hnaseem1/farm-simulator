@@ -12,13 +12,17 @@ class Field < Farm
     @area = area
   end
 
-# readers and writers for Field Instances
+# readers and writers
   def type
     @type
   end
 
   def area
     @area
+  end
+
+  def self.area
+    @@area
   end
 # a class method to create new fields
   def self.create(type, area)
@@ -51,9 +55,4 @@ class Field < Farm
   def add_to_total
       Farm.add_food(produce_food)
   end
-
-  def self.area
-    @@area
-  end
-
 end
