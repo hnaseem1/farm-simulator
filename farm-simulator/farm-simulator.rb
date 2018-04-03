@@ -39,14 +39,17 @@ class FarmSimulator
   def add_field
 
     puts "What kind of field is it: corn or wheat?"
-    type = gets.chomp
+    type = gets.chomp.downcase
     puts "How large is the field in hectares?"
     area = gets.chomp.to_i
-    View.create(type, area)
+    if type == "corn" || type == "wheat" && area > 0
+      View.create(type, area)
+    else
+      puts "Please check your input values!"
+      menu
+    end
     puts "Added a #{type} field of #{area} hectres"
-
   end
-
 end
 
 

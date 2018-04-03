@@ -17,7 +17,7 @@ class View < Field
       puts "Harvesting #{food} food from #{field.area} hectre #{field.type} field"
       field.add_to_total(food)
     end
-      self.display_harvested_food
+      display_harvested_food
   end
 
 # Displays total harvest for each type of field
